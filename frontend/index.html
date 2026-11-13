@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#10131d">
-  <title>HabitFlow — трекер привычек</title>
+  <meta name="theme-color" content="#10131d">\n  <meta name="application-name" content="Habits Tracker">
+  <title>Habits Tracker — трекер привычек</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,9 +12,22 @@
   <script src="app.js" defer></script>
 </head>
 <body>
+
+  <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12.2 2.6 2.6L16.5 9"></path></symbol>
+    <symbol id="icon-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"></rect><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"></rect><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"></rect><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"></rect></symbol>
+    <symbol id="icon-sparkles" viewBox="0 0 24 24"><path d="m12 3 1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3Z"></path><path d="m19 15 .8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15Z"></path></symbol>
+    <symbol id="icon-log-out" viewBox="0 0 24 24"><path d="M10 17l5-5-5-5"></path><path d="M15 12H3"></path><path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"></path></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"></path></symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></symbol>
+    <symbol id="icon-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"></path></symbol>
+  </svg>
+
   <main id="auth-screen" class="auth-screen">
     <section class="auth-brand">
-      <a class="brand" href="#"><span class="brand-mark">h</span><span>habit<span class="brand-light">flow</span></span></a>
+      <a class="brand" href="#"><span class="brand-mark"><svg class="ui-icon brand-icon"><use href="#icon-check-circle"></use></svg></span><span>Habits Tracker</span></a>
       <div class="auth-message">
         <span class="eyebrow"><span class="eyebrow-dot"></span> МАЛЕНЬКИЕ ШАГИ — БОЛЬШИЕ ПЕРЕМЕНЫ</span>
         <h1>Стань ближе<br>к лучшей <span>версии себя.</span></h1>
@@ -22,14 +35,14 @@
         <div class="auth-preview">
           <div class="preview-top"><span>ТВОЙ ПРОГРЕСС</span><span class="preview-date" id="preview-date">СЕГОДНЯ</span></div>
           <div class="preview-progress"><span></span></div>
-          <div class="preview-bottom"><strong>3 из 5</strong><span>привычек выполнено</span><span class="preview-spark">↗</span></div>
+          <div class="preview-bottom"><strong>3 из 5</strong><span>привычек выполнено</span><span class="preview-spark"><svg class="ui-icon"><use href="#icon-trend"></use></svg></span></div>
         </div>
       </div>
-      <div class="auth-footer">© 2026 HabitFlow · Начни с одного шага</div>
+      <div class="auth-footer">© 2026 Habits Tracker · Начни с одного шага</div>
     </section>
     <section class="auth-panel">
       <div class="auth-card">
-        <div class="mobile-brand"><span class="brand-mark">h</span> habitflow</div>
+        <div class="mobile-brand"><span class="brand-mark"><svg class="ui-icon brand-icon"><use href="#icon-check-circle"></use></svg></span> Habits Tracker</div>
         <div class="auth-heading">
           <span class="eyebrow">ТВОЁ ВРЕМЯ НАЧИНАТЬ</span>
           <h2 id="auth-title">С возвращением!</h2>
@@ -60,10 +73,10 @@
     <aside class="sidebar">
       <a class="brand sidebar-brand" href="#"><span class="brand-mark">h</span><span>habit<span class="brand-light">flow</span></span></a>
       <div class="side-label">МЕНЮ</div>
-      <button class="side-link active" type="button"><span class="side-icon">▦</span> Мои привычки</button>
+      <button class="side-link active" type="button"><span class="side-icon"><svg class="ui-icon"><use href="#icon-grid"></use></svg></span> Мои привычки</button>
       <div class="sidebar-bottom">
-        <div class="sidebar-tip"><span class="tip-icon">✳</span><strong>Помни</strong><p>Не нужно быть идеальным. Главное — продолжать.</p></div>
-        <button class="side-link logout-button" id="logout-button" type="button"><span class="side-icon">↪</span> Выйти из аккаунта</button>
+        <div class="sidebar-tip"><span class="tip-icon"><svg class="ui-icon"><use href="#icon-sparkles"></use></svg></span><strong>Помни</strong><p>Не нужно быть идеальным. Главное — продолжать.</p></div>
+        <button class="side-link logout-button" id="logout-button" type="button"><span class="side-icon"><svg class="ui-icon"><use href="#icon-log-out"></use></svg></span> Выйти из аккаунта</button>
       </div>
     </aside>
 
@@ -74,15 +87,15 @@
       </header>
       <div class="page-content">
         <div class="welcome-row">
-          <div><span class="eyebrow" id="today-label">ТВОЙ ДЕНЬ</span><h1>Привет, <span id="welcome-name">друг</span> <span class="wave">✦</span></h1><p>Каждая выполненная привычка — ещё один шаг вперёд.</p></div>
-          <button class="button button-primary add-button" id="open-add-modal" type="button"><span>＋</span> Добавить привычку</button>
+          <div><span class="eyebrow" id="today-label">ТВОЙ ДЕНЬ</span><h1>Привет, <span id="welcome-name">друг</span> <span class="wave"><svg class="ui-icon"><use href="#icon-sparkles"></use></svg></span></h1><p>Каждая выполненная привычка — ещё один шаг вперёд.</p></div>
+          <button class="button button-primary add-button" id="open-add-modal" type="button"><svg class="ui-icon"><use href="#icon-plus"></use></svg> Добавить привычку</button>
         </div>
 
         <section class="stats-grid" aria-label="Статистика">
-          <article class="stat-card"><div class="stat-icon purple">▦</div><span>Всего привычек</span><strong id="stat-total">0</strong><small>В твоём списке</small></article>
-          <article class="stat-card"><div class="stat-icon green">✓</div><span>Выполнено сегодня</span><strong id="stat-done">0</strong><small id="stat-done-note">Начни свой день!</small></article>
-          <article class="stat-card"><div class="stat-icon orange">◷</div><span>Нужно выполнить</span><strong id="stat-pending">0</strong><small>Ещё есть время</small></article>
-          <article class="stat-card"><div class="stat-icon blue">↗</div><span>Прогресс дня</span><strong id="stat-progress">0%</strong><div class="mini-progress"><span id="stat-progress-bar"></span></div></article>
+          <article class="stat-card"><div class="stat-icon purple"><svg class="ui-icon"><use href="#icon-grid"></use></svg></div><span>Всего привычек</span><strong id="stat-total">0</strong><small>В твоём списке</small></article>
+          <article class="stat-card"><div class="stat-icon green"><svg class="ui-icon"><use href="#icon-check"></use></svg></div><span>Выполнено сегодня</span><strong id="stat-done">0</strong><small id="stat-done-note">Начни свой день!</small></article>
+          <article class="stat-card"><div class="stat-icon orange"><svg class="ui-icon"><use href="#icon-clock"></use></svg></div><span>Нужно выполнить</span><strong id="stat-pending">0</strong><small>Ещё есть время</small></article>
+          <article class="stat-card"><div class="stat-icon blue"><svg class="ui-icon"><use href="#icon-trend"></use></svg></div><span>Прогресс дня</span><strong id="stat-progress">0%</strong><div class="mini-progress"><span id="stat-progress-bar"></span></div></article>
         </section>
 
         <div class="board-heading"><div><h2>Твои привычки</h2><p>Отмечай выполненные дела и следи за прогрессом.</p></div><span class="date-chip" id="current-date-chip"></span></div>
@@ -90,22 +103,22 @@
           <section class="habit-column">
             <div class="column-heading"><div class="column-title"><span class="status-dot pending-dot"></span><h3>В процессе</h3><span class="count-pill" id="pending-count">0</span></div><span class="column-caption">Ещё предстоит</span></div>
             <div class="habit-list" id="pending-list"></div>
-            <div class="empty-state" id="pending-empty"><span>✧</span><strong>Пока здесь пусто</strong><p>Добавь привычку и сделай первый шаг.</p></div>
+            <div class="empty-state" id="pending-empty"><span><svg class="ui-icon"><use href="#icon-sparkles"></use></svg></span><strong>Пока здесь пусто</strong><p>Добавь привычку и сделай первый шаг.</p></div>
           </section>
           <section class="habit-column completed-column">
             <div class="column-heading"><div class="column-title"><span class="status-dot done-dot"></span><h3>Выполнено</h3><span class="count-pill" id="completed-count">0</span></div><span class="column-caption">Ты молодец!</span></div>
             <div class="habit-list" id="completed-list"></div>
-            <div class="empty-state" id="completed-empty"><span>✓</span><strong>Пока ничего нет</strong><p>Выполненные привычки появятся здесь.</p></div>
+            <div class="empty-state" id="completed-empty"><span><svg class="ui-icon"><use href="#icon-check"></use></svg></span><strong>Пока ничего нет</strong><p>Выполненные привычки появятся здесь.</p></div>
           </section>
         </div>
-        <footer class="page-footer">Сделано с заботой о твоих маленьких победах <span>✳</span></footer>
+        <footer class="page-footer">Сделано с заботой о твоих маленьких победах <span><svg class="ui-icon"><use href="#icon-sparkles"></use></svg></span></footer>
       </div>
     </section>
   </main>
 
   <div class="modal-backdrop hidden" id="habit-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <form class="modal-card" id="habit-form">
-      <button class="modal-close" type="button" id="close-modal" aria-label="Закрыть">×</button>
+      <button class="modal-close" type="button" id="close-modal" aria-label="Закрыть"><svg class="ui-icon"><use href="#icon-close"></use></svg></button>
       <span class="eyebrow">НОВАЯ ЦЕЛЬ</span><h2 id="modal-title">Добавить привычку</h2><p class="modal-description">Выбери то, что хочешь регулярно делать.</p>
       <label class="field-label" for="habit-title">Название привычки</label>
       <input id="habit-title" name="title" maxlength="100" placeholder="Например, читать 20 минут" required>
