@@ -1,5 +1,5 @@
 /*
- * HabitFlow frontend.
+ * Habits Tracker frontend.
  * Configure API_BASE to point to your backend.
  * Expected auth response: { accessToken, user: { id, name, email } }
  * Prefer an HttpOnly cookie in production; token storage below is a simple
