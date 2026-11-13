@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10131d">
+  <title>HabitFlow — трекер привычек</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main id="auth-screen" class="auth-screen">
+    <section class="auth-brand">
+      <a class="brand" href="#"><span class="brand-mark">h</span><span>habit<span class="brand-light">flow</span></span></a>
+      <div class="auth-message">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> МАЛЕНЬКИЕ ШАГИ — БОЛЬШИЕ ПЕРЕМЕНЫ</span>
+        <h1>Стань ближе<br>к лучшей <span>версии себя.</span></h1>
+        <p>Создавай полезные привычки, отмечай каждый успех и наблюдай, как меняется твоя жизнь.</p>
+        <div class="auth-preview">
+          <div class="preview-top"><span>ТВОЙ ПРОГРЕСС</span><span class="preview-date" id="preview-date">СЕГОДНЯ</span></div>
+          <div class="preview-progress"><span></span></div>
+          <div class="preview-bottom"><strong>3 из 5</strong><span>привычек выполнено</span><span class="preview-spark">↗</span></div>
+        </div>
+      </div>
+      <div class="auth-footer">© 2026 HabitFlow · Начни с одного шага</div>
+    </section>
+    <section class="auth-panel">
+      <div class="auth-card">
+        <div class="mobile-brand"><span class="brand-mark">h</span> habitflow</div>
+        <div class="auth-heading">
+          <span class="eyebrow">ТВОЁ ВРЕМЯ НАЧИНАТЬ</span>
+          <h2 id="auth-title">С возвращением!</h2>
+          <p id="auth-subtitle">Войди в аккаунт, чтобы продолжить свой путь.</p>
+        </div>
+        <div class="auth-switch">
+          <button class="auth-tab active" type="button" data-auth-tab="login">Войти</button>
+          <button class="auth-tab" type="button" data-auth-tab="register">Регистрация</button>
+        </div>
+        <form id="auth-form">
+          <label class="field-label" for="auth-email">Электронная почта</label>
+          <input id="auth-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          <label class="field-label" for="auth-password">Пароль</label>
+          <input id="auth-password" name="password" type="password" placeholder="Минимум 8 символов" minlength="8" autocomplete="current-password" required>
+          <div id="name-field" class="hidden">
+            <label class="field-label" for="auth-name">Как тебя зовут?</label>
+            <input id="auth-name" name="name" type="text" placeholder="Твоё имя" autocomplete="name">
+          </div>
+          <p class="form-error" id="auth-error" role="alert"></p>
+          <button class="button button-primary auth-submit" id="auth-submit" type="submit">Войти <span>→</span></button>
+        </form>
+        <p class="auth-terms">Продолжая, ты соглашаешься с правилами использования сервиса.</p>
+      </div>
+    </section>
+  </main>
+
+  <main id="app-screen" class="app-shell hidden">
+    <aside class="sidebar">
+      <a class="brand sidebar-brand" href="#"><span class="brand-mark">h</span><span>habit<span class="brand-light">flow</span></span></a>
+      <div class="side-label">МЕНЮ</div>
+      <button class="side-link active" type="button"><span class="side-icon">▦</span> Мои привычки</button>
+      <div class="sidebar-bottom">
+        <div class="sidebar-tip"><span class="tip-icon">✳</span><strong>Помни</strong><p>Не нужно быть идеальным. Главное — продолжать.</p></div>
+        <button class="side-link logout-button" id="logout-button" type="button"><span class="side-icon">↪</span> Выйти из аккаунта</button>
+      </div>
+    </aside>
+
+    <section class="workspace">
+      <header class="topbar">
+        <div class="breadcrumbs">Рабочее пространство <span>/</span> <strong>Мои привычки</strong></div>
+        <div class="topbar-user"><div class="avatar" id="user-avatar">U</div><div><strong id="user-name">Пользователь</strong><span>Мой аккаунт</span></div></div>
+      </header>
+      <div class="page-content">
+        <div class="welcome-row">
+          <div><span class="eyebrow" id="today-label">ТВОЙ ДЕНЬ</span><h1>Привет, <span id="welcome-name">друг</span> <span class="wave">✦</span></h1><p>Каждая выполненная привычка — ещё один шаг вперёд.</p></div>
+          <button class="button button-primary add-button" id="open-add-modal" type="button"><span>＋</span> Добавить привычку</button>
+        </div>
+
+        <section class="stats-grid" aria-label="Статистика">
+          <article class="stat-card"><div class="stat-icon purple">▦</div><span>Всего привычек</span><strong id="stat-total">0</strong><small>В твоём списке</small></article>
+          <article class="stat-card"><div class="stat-icon green">✓</div><span>Выполнено сегодня</span><strong id="stat-done">0</strong><small id="stat-done-note">Начни свой день!</small></article>
+          <article class="stat-card"><div class="stat-icon orange">◷</div><span>Нужно выполнить</span><strong id="stat-pending">0</strong><small>Ещё есть время</small></article>
+          <article class="stat-card"><div class="stat-icon blue">↗</div><span>Прогресс дня</span><strong id="stat-progress">0%</strong><div class="mini-progress"><span id="stat-progress-bar"></span></div></article>
+        </section>
+
+        <div class="board-heading"><div><h2>Твои привычки</h2><p>Отмечай выполненные дела и следи за прогрессом.</p></div><span class="date-chip" id="current-date-chip"></span></div>
+        <div class="habit-board">
+          <section class="habit-column">
+            <div class="column-heading"><div class="column-title"><span class="status-dot pending-dot"></span><h3>В процессе</h3><span class="count-pill" id="pending-count">0</span></div><span class="column-caption">Ещё предстоит</span></div>
+            <div class="habit-list" id="pending-list"></div>
+            <div class="empty-state" id="pending-empty"><span>✧</span><strong>Пока здесь пусто</strong><p>Добавь привычку и сделай первый шаг.</p></div>
+          </section>
+          <section class="habit-column completed-column">
+            <div class="column-heading"><div class="column-title"><span class="status-dot done-dot"></span><h3>Выполнено</h3><span class="count-pill" id="completed-count">0</span></div><span class="column-caption">Ты молодец!</span></div>
+            <div class="habit-list" id="completed-list"></div>
+            <div class="empty-state" id="completed-empty"><span>✓</span><strong>Пока ничего нет</strong><p>Выполненные привычки появятся здесь.</p></div>
+          </section>
+        </div>
+        <footer class="page-footer">Сделано с заботой о твоих маленьких победах <span>✳</span></footer>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop hidden" id="habit-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <form class="modal-card" id="habit-form">
+      <button class="modal-close" type="button" id="close-modal" aria-label="Закрыть">×</button>
+      <span class="eyebrow">НОВАЯ ЦЕЛЬ</span><h2 id="modal-title">Добавить привычку</h2><p class="modal-description">Выбери то, что хочешь регулярно делать.</p>
+      <label class="field-label" for="habit-title">Название привычки</label>
+      <input id="habit-title" name="title" maxlength="100" placeholder="Например, читать 20 минут" required>
+      <label class="field-label" for="habit-date">Когда выполнить?</label>
+      <input id="habit-date" name="dueDate" type="date" required>
+      <p class="form-error" id="habit-error" role="alert"></p>
+      <div class="modal-actions"><button class="button button-quiet" type="button" id="cancel-modal">Отмена</button><button class="button button-primary" type="submit" id="save-habit">Добавить привычку <span>→</span></button></div>
+    </form>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>
