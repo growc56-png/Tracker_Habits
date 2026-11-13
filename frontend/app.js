@@ -80,7 +80,7 @@ function setAuthMode(mode) {
   document.querySelectorAll("[data-auth-tab]").forEach((tab) => tab.classList.toggle("active", tab.dataset.authTab === mode));
   $("#auth-title").textContent = register ? "Создай аккаунт" : "С возвращением!";
   $("#auth-subtitle").textContent = register ? "Заполни данные — и начнём формировать привычки." : "Войди в аккаунт, чтобы продолжить свой путь.";
-  $("#auth-submit").innerHTML = register ? 'Зарегистрироваться <span>→</span>' : 'Войти <span>→</span>';
+  $("#auth-submit").innerHTML = register ? 'Зарегистрироваться <svg class="ui-icon auth-arrow"><use href="#icon-arrow-right"></use></svg>' : 'Войти <svg class="ui-icon auth-arrow"><use href="#icon-arrow-right"></use></svg>';
   $("#name-field").classList.toggle("hidden", !register);
   $("#auth-password").autocomplete = register ? "new-password" : "current-password";
   $("#auth-error").textContent = "";
@@ -109,7 +109,7 @@ async function handleAuth(event) {
     $("#auth-error").textContent = error.message || "Не удалось выполнить вход.";
   } finally {
     button.disabled = false;
-    button.innerHTML = state.authMode === "register" ? 'Зарегистрироваться <span>→</span>' : 'Войти <span>→</span>';
+    button.innerHTML = state.authMode === "register" ? 'Зарегистрироваться <svg class="ui-icon auth-arrow"><use href="#icon-arrow-right"></use></svg>' : 'Войти <svg class="ui-icon auth-arrow"><use href="#icon-arrow-right"></use></svg>';
   }
 }
 function normalizeHabit(habit) {
@@ -139,7 +139,7 @@ function renderCard(habit) {
   return `<article class="habit-card ${overdue ? "is-late" : ""}">
     <input class="habit-check" type="checkbox" data-complete-id="${escapeHTML(habit.id)}" ${habit.completed ? "checked" : ""} aria-label="Отметить «${escapeHTML(habit.title)}» как выполненную">
     <div class="habit-info"><strong>${escapeHTML(habit.title)}</strong>${meta}</div>
-    <button class="habit-delete" type="button" data-delete-id="${escapeHTML(habit.id)}" aria-label="Удалить привычку" title="Удалить">×</button>
+    <button class="habit-delete" type="button" data-delete-id="${escapeHTML(habit.id)}" aria-label="Удалить привычку" title="Удалить"><svg class="ui-icon"><use href="#icon-close"></use></svg></button>
   </article>`;
 }
 function renderHabits() {
