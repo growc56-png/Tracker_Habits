@@ -1,4 +1,4 @@
-# Контракт Backend API для HabitFlow
+# Контракт Backend API для Habits Tracker
 
 Frontend находится в папке `frontend/`. Он не содержит серверной логики и обращается к API через `fetch`.
 
